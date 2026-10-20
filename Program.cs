@@ -1,8 +1,13 @@
 var builder = WebApplication.CreateBuilder(args);
 
+builder
+    .AddArchitectures()
+    .AddServices();
+
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+app.UseArchitectures().MapEndpoints();
 
-app.MapControllers();
+
+
 app.Run();
